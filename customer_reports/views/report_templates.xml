@@ -38,8 +38,16 @@
                 <div class="col-4">
                     <span t-field="company.report_footer"/>
                 </div>
-                <div class="col-8 text-right">
+                <div class="col-4">
                     <span t-if="company.company_details" t-field="company.company_details"/>
+                </div>
+                <div class="col-4">
+                    <ul class="list-unstyled">
+                        <li>Account / Payable to:</li>
+                        <li>CH28 0027 7277 1227 7601 A</li>
+                        <li>UBS Switzerland AG</li>
+                        <li>8098 Zürich</li>
+                    </ul>
                 </div>
                 <!--<div class="col-3">
                     <h5 class="mt0 mb0" t-field="company.report_header"/>

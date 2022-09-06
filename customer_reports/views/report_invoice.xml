@@ -185,7 +185,7 @@
                 <!-- QR-bill Invoice -->
                 <p style="page-break-after: always;"/>
                 
-                <t t-if="o.move_type == 'out_invoice' and o.partner_bank_id and o.partner_bank_id._eligible_for_qr_code(o.qr_code_method, o.partner_id, o.currency_id)">
+                <t t-if="o.move_type == 'out_invoice' and o.partner_id and o.partner_bank_id and o.partner_bank_id._eligible_for_qr_code(o.qr_code_method, o.partner_id, o.currency_id)">
 
                     <t t-set="formated_amount" t-value="'{:,.2f}'.format(o.amount_residual).replace(',','\xa0')"/>
 
