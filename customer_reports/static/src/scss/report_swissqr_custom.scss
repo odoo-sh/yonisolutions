@@ -1,0 +1,166 @@
+.qr_title {
+    display: block;
+    font-size: 2em;
+    font-weight: bold;
+}
+
+.swiss_content{
+
+    position:absolute;
+    /* New QR Bill code */
+    background-color: white;
+
+    /* Disable custom font-family */
+    .o_company_2_layout {
+        font-family: revert;
+    }
+
+    $ratio: 1.25;
+    $receipt_width: 52mm * $ratio;
+    $left_col_width: 46mm * $ratio;
+    $right_col_width: 87mm * $ratio;
+    $rounding_offset: 0.25mm;
+
+    @mixin font {
+        font-family: LiberationSans;
+        color: black;
+    }
+    @mixin title {
+        @include font;
+        font-weight: bold;
+    }
+    .title {
+        @include title;
+    }
+
+    .swissqr_text {
+        @include font;
+    }
+
+    .swissqr_page_title {
+        @include title;
+        height: 7mm * $ratio;
+        padding: 15px;
+        padding-top: 200px;
+    }
+
+    .swissqr_section_title {
+        @include title;
+        width: $receipt_width;
+        height: 7mm * $ratio;
+        font-size: 11pt * $ratio;
+        line-height: 9pt * $ratio;
+    }
+
+    .swissqr_receipt {
+        position: absolute;
+        left: 0mm;
+        top: 100mm * $ratio;
+        width: 62mm * $ratio;
+        height: 105mm * $ratio - $rounding_offset;
+        border: 0.75pt * $ratio dashed black;
+        border-right: 0pt;
+        padding: 5mm * $ratio;
+        .title {
+            font-size: 6pt * $ratio;
+            line-height: 9pt * $ratio;
+        }
+        .content {
+            font-size: 8pt * $ratio;
+            line-height: 9pt * $ratio;
+        }
+        .receipt_indication_zone {
+            width: $receipt_width;
+            height: 56mm * $ratio;
+        }
+        .receipt_amount_zone {
+            width: $receipt_width;
+            height: 14mm * $ratio;
+            .column {
+                float: left;
+                margin-right: 5mm;
+            }
+            .content {
+                font-size: 8pt * $ratio;
+                line-height: 11pt * $ratio;
+            }
+        }
+        .receipt_acceptance_point_zone {
+            width: $receipt_width;
+            height: 18mm * $ratio;
+            .content {
+                float: right;
+                padding-right: 2mm * $ratio;
+                font-size: 6pt * $ratio;
+                line-height: 8pt * $ratio;
+            }
+        }
+    }
+
+    .swissqr_body {
+        position: absolute;
+        top: 100mm * $ratio;
+        left: 62mm * $ratio;
+        width: 148mm * $ratio;
+        height: 105mm * $ratio - $rounding_offset;
+        border: 0.75pt * $ratio dashed black;
+        padding: 5mm * $ratio;
+        .title {
+            font-size: 8pt * $ratio;
+            line-height: 11pt * $ratio;
+        }
+        .content {
+            font-size: 10pt * $ratio;
+            line-height: 11pt * $ratio;
+        }
+        .swissqr_column_left {
+            float: left;
+            width: $left_col_width;
+            .swissqr_section_title{
+                height: 7mm * $ratio;
+            }
+            .swissqr {
+                margin-top: 5mm * $ratio;
+                margin-bottom: 5mm * $ratio;
+                height: 46mm * $ratio;
+                width: 46mm * $ratio;
+            }
+            .amount_zone {
+                width: $left_col_width;
+                height: 22mm * $ratio;
+                .column {
+                    margin-right: 3mm;
+                    float: left;
+                }
+                .title {
+                    font-size: 8pt * $ratio;
+                    line-height: 11pt * $ratio;
+                }
+                .content {
+                    font-size: 10pt * $ratio;
+                    line-height: 13pt * $ratio;
+                }
+            }
+        }
+        .swissqr_column_right {
+            float: right;
+            width: $right_col_width;
+        }
+    }
+
+    .scissors {
+        width: 16px;
+        height: 16px;
+    }
+    .vertical_scissors {
+        position: absolute;
+        top: 5mm * $ratio;
+        left: -1.8mm * $ratio;
+    }
+    .horizontal_scissors {
+        position: absolute;
+        top: -2mm * $ratio;
+        left: 6mm * $ratio;
+    }
+
+}
