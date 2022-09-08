@@ -41,12 +41,13 @@
                 <div class="col-4">
                     <span t-if="company.company_details" t-field="company.company_details"/>
                 </div>
-                <div class="col-4">
+                <t t-set="bank_ids" t-value="company.partner_id.bank_ids"/>
+                <div class="col-4" t-if="bank_ids">
                     <ul class="list-unstyled">
                         <li>Account / Payable to:</li>
-                        <li>CH28 0027 7277 1227 7601 A</li>
-                        <li>UBS Switzerland AG</li>
-                        <li>8098 Zürich</li>
+                        <li><t t-out="bank_ids[0].acc_number"/></li>
+                        <li><t t-out="bank_ids[0].bank_id.name"/></li>
+                        <li><t t-out="bank_ids[0].bank_id.zip"/>&amp;nbsp;<span><t t-out="bank_ids[0].bank_id.city"/></span></li>
                     </ul>
                 </div>
                 <!--<div class="col-3">
