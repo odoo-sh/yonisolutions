@@ -17,6 +17,7 @@
             'mrp',
     ],
     "data": [
-        'views/mrp_production_views.xml'
+        'views/mrp_production_views.xml',
+        'views/stock_quant_views.xml',
     ],
 }
